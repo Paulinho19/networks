@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import SessionWrapper from "@/components/SessionWrapper";
 
 const workSans = localFont({
   src: [
@@ -60,7 +61,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={workSans.className}>{children}</body>
+      <body className={workSans.className}>
+        <SessionWrapper> {children}</SessionWrapper>
+      </body>
     </html>
   );
 }

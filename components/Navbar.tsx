@@ -1,11 +1,11 @@
 "use client";
 
-//import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
   return (
     <header className="px-5 py-3 bg-white shadow-sm font-work-sans ">
@@ -15,19 +15,7 @@ export default function Navbar() {
         </Link>
 
         <div className="flex items-center gap-5 text-black">
-          <>
-            <Link href={"/startup/create"}>
-              <span>Create</span>
-            </Link>
-            <button>
-              <span>Logout</span>
-            </button>
-
-            <Link href={`/user/PH`}>
-              <span>Paulo</span>
-            </Link>
-          </>
-          {/*session && session?.user ? (
+          {session && session?.user ? (
             <>
               <Link href={"/startup/create"}>
                 <span>Create</span>
@@ -46,7 +34,7 @@ export default function Navbar() {
                 <span>Login</span>
               </button>
             </>
-          )*/}
+          )}
         </div>
       </nav>
     </header>
